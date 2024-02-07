@@ -68,6 +68,4 @@ void _destroyArr(_dynamicArr arr) {
 	for (int** tmp = arr.arr; *tmp != NULL; *tmp++) {
 		free(*tmp);
 	}
-
-	if (!arr.arr) { free(arr.arr); }
 }
