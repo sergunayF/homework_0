@@ -54,9 +54,6 @@ void _addValue(_dynamicArr* arr, int value) {
 	for (int i = 0; i < size; tmp++, i++);
 	*tmp = _memoryAlloc(sizeof(int));
 	**tmp = value; tmp++; *tmp = NULL;
-
-	return 0;
-
 }
 
 void _printArr(_dynamicArr arr) {

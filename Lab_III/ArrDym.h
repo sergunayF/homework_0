@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//typedef <res-type> (*<type-name>)<args;>;
 typedef struct { int _len; int** arr; } _dynamicArr;
 
 void _addValue(_dynamicArr* arr, int value);
