@@ -5,10 +5,13 @@
 void* _memoryAlloc(int size);
 void* _reMemory(int size, int** arr);
 
-_dynamicArr _createArray() {
-	
+_dynamicArr _createArray(int _len) {
+
 	_dynamicArr _createArr;
 	
+	if (_len > 0) { _createArr._len = _len; }
+	else { printf("Size error;"); _createArr.arr = NULL; return _createArr; }
+
 	_createArr.arr = _memoryAlloc(sizeof(int));
 	if (!_createArr.arr) return;
 	*_createArr.arr = NULL;
@@ -58,12 +61,16 @@ void _addValue(_dynamicArr* arr, int value) {
 
 void _printArr(_dynamicArr arr) {
 	
+	if (arr.arr == NULL) { return 0; }
+
 	for (int** tmp = arr.arr; *tmp != NULL; *tmp++) {
-		printf("%d ", **tmp);
+		printf("[%d]", **tmp);
 	}
 }
 
 void _destroyArr(_dynamicArr arr) {
+
+	if (arr.arr == NULL) { return 0; }
 
 	for (int** tmp = arr.arr; *tmp != NULL; *tmp++) {
 		free(*tmp);
